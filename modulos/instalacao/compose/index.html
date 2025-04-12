@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Introdução - Manual de Implantação</title>
+    <title>Instalação com Docker Compose - Manual de Implantação</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Introdu\u00e7\u00e3o";
-        var mkdocs_page_input_path = "modulos/componentes/introducao.md";
+        var mkdocs_page_name = "Instala\u00e7\u00e3o com Docker Compose";
+        var mkdocs_page_input_path = "modulos/instalacao/compose.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -45,14 +45,12 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Componentes</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Introdução</a>
-    <ul class="current">
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../componentes/introducao/">Introdução</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../obrigatorios/">Componentes Obrigatórios</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../componentes/obrigatorios/">Componentes Obrigatórios</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../opcionais/">Componentes Complementares</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../componentes/opcionais/">Componentes Complementares</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Infraestrutura Recomendada</span></p>
@@ -71,18 +69,22 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Instalação da aplicação</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/compose/">Instalação com Docker Compose</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Instalação com Docker Compose</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#execucao">Execução</a>
+    </li>
+    </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/kubernetes/">Instalação com Kubernetes</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../kubernetes/">Instalação com Kubernetes</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/loadbalance/">Load Balance e Redundância</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../loadbalance/">Load Balance e Redundância</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/bancodedados/">Banco de Dados</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../bancodedados/">Banco de Dados</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/cache/">Banco de Dados Chave-valor</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../cache/">Banco de Dados Chave-valor</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/checklist/">Check-list pós instalação</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../checklist/">Check-list pós instalação</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Boas Práticas</span></p>
@@ -114,8 +116,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Componentes</li>
-      <li class="breadcrumb-item active">Introdução</li>
+          <li class="breadcrumb-item">Instalação da aplicação</li>
+      <li class="breadcrumb-item active">Instalação com Docker Compose</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -124,30 +126,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="introducao">Introdução</h1>
-<p>Este módulo descreve os componentes do sistema <strong>e-SUS AF</strong>, incluindo os componentes opcionais e obrigatórios para a aplicação e suas respectivas funções.<br />
-Para fins gerais, considere como <em>Componentes Obrigatórios</em> aqueles que são estritamente necessários para o funcionamento do sistema, tais como interface web, api de serviços, e demais componentes essenciais ao funcionamento da aplicação, e como <em>Componentes Complementares</em>, aqueles que estendem recursos do sistemas garantindo recursos adicionais à aplicação.</p>
-<p>São considerados componentes obrigatórios:</p>
-<ul>
-<li>Interface WEB</li>
-<li>API de serviços</li>
-<li>Banco de Dados</li>
-<li>Serviço de cache</li>
-</ul>
-<p>Quanto ao conjunto de componentes opcionais, listamos:</p>
-<ul>
-<li>Interface Web de monitoramento</li>
-<li>Serviço de coleta de logs</li>
-<li>Serviço de coleta de métricas</li>
-<li>Interface de dataview (À Confirmar)</li>
-<li>Serviço de automação, gerenciamento e coordenação de fluxos de dados (À Confirmar)</li>
-</ul>
+                <h1 id="instalacao-com-docker-compose">Instalação com Docker Compose</h1>
+<p>Crie o arquivo <code>docker-compose.yml</code>:</p>
+<pre><code class="language-yml">version: '3.5'
+
+services:
+  web:
+    container_name: web
+    image: ghcr.io/projeto-af/e-susaf/e-susaf-web:latest
+    ports:
+      - &quot;8000:80&quot;
+    environment:
+      VAR__API_URL: &quot;http://api:3001&quot;
+
+  api:
+    container_name: api
+    image: ghcr.io/projeto-af/e-susaf/e-susaf-api:latest
+    ports:
+      - &quot;3001:3001&quot;
+    environment:
+      DB_HOST: db
+      PORT: &quot;3001&quot;
+
+  db:
+    container_name: db
+    image: postgres:15
+    environment:
+      POSTGRES_DB: esus
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /data/postgres
+    volumes:
+      - ../database/postgres:/docker-entrypoint-initdb.d
+      - postgres:/data/postgres
+    ports:
+      - &quot;5432:5432&quot;
+    restart: unless-stopped
+
+  redis:
+    image: registry.redict.io/redict:latest
+    container_name: redis
+    restart: always
+    ports:
+      - &quot;${REDIS_PORT}:6379&quot;
+    environment:
+      REDICT_PASSWORD: ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres:
+  redis_data:
+
+</code></pre>
+<h3 id="execucao">Execução</h3>
+<p>Para executar, siga com o comando:</p>
+<pre><code class="language-bash">docker-compose up -d
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../.." class="btn btn-neutral float-left" title="Página Inicial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../obrigatorios/" class="btn btn-neutral float-right" title="Componentes Obrigatórios">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../ambiente/ambiente/" class="btn btn-neutral float-left" title="Preparação do Ambiente"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../kubernetes/" class="btn btn-neutral float-right" title="Instalação com Kubernetes">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -170,10 +211,10 @@ Para fins gerais, considere como <em>Componentes Obrigatórios</em> aqueles que 
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../ambiente/ambiente/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../obrigatorios/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../kubernetes/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

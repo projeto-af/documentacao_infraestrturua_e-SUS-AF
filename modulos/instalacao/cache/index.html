@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Introdução - Manual de Implantação</title>
+    <title>Banco de Dados Chave-valor - Manual de Implantação</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Introdu\u00e7\u00e3o";
-        var mkdocs_page_input_path = "modulos/componentes/introducao.md";
+        var mkdocs_page_name = "Banco de Dados Chave-valor";
+        var mkdocs_page_input_path = "modulos/instalacao/cache.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -45,14 +45,12 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Componentes</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Introdução</a>
-    <ul class="current">
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../componentes/introducao/">Introdução</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../obrigatorios/">Componentes Obrigatórios</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../componentes/obrigatorios/">Componentes Obrigatórios</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../opcionais/">Componentes Complementares</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../componentes/opcionais/">Componentes Complementares</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Infraestrutura Recomendada</span></p>
@@ -71,18 +69,20 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Instalação da aplicação</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/compose/">Instalação com Docker Compose</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../compose/">Instalação com Docker Compose</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/kubernetes/">Instalação com Kubernetes</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../kubernetes/">Instalação com Kubernetes</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/loadbalance/">Load Balance e Redundância</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../loadbalance/">Load Balance e Redundância</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/bancodedados/">Banco de Dados</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../bancodedados/">Banco de Dados</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/cache/">Banco de Dados Chave-valor</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Banco de Dados Chave-valor</a>
+    <ul class="current">
+    </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../instalacao/checklist/">Check-list pós instalação</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../checklist/">Check-list pós instalação</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Boas Práticas</span></p>
@@ -114,8 +114,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Componentes</li>
-      <li class="breadcrumb-item active">Introdução</li>
+          <li class="breadcrumb-item">Instalação da aplicação</li>
+      <li class="breadcrumb-item active">Banco de Dados Chave-valor</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -124,30 +124,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="introducao">Introdução</h1>
-<p>Este módulo descreve os componentes do sistema <strong>e-SUS AF</strong>, incluindo os componentes opcionais e obrigatórios para a aplicação e suas respectivas funções.<br />
-Para fins gerais, considere como <em>Componentes Obrigatórios</em> aqueles que são estritamente necessários para o funcionamento do sistema, tais como interface web, api de serviços, e demais componentes essenciais ao funcionamento da aplicação, e como <em>Componentes Complementares</em>, aqueles que estendem recursos do sistemas garantindo recursos adicionais à aplicação.</p>
-<p>São considerados componentes obrigatórios:</p>
-<ul>
-<li>Interface WEB</li>
-<li>API de serviços</li>
-<li>Banco de Dados</li>
-<li>Serviço de cache</li>
-</ul>
-<p>Quanto ao conjunto de componentes opcionais, listamos:</p>
-<ul>
-<li>Interface Web de monitoramento</li>
-<li>Serviço de coleta de logs</li>
-<li>Serviço de coleta de métricas</li>
-<li>Interface de dataview (À Confirmar)</li>
-<li>Serviço de automação, gerenciamento e coordenação de fluxos de dados (À Confirmar)</li>
-</ul>
+                <h1 id="backup-redict">Backup Redict</h1>
+<p>O Redict salva automaticamente no arquivo <code>dump.rdb</code> configurado em <code>redis.conf</code>.</p>
+<p>Para garantir um backup diário, armazene o arquivo rdb:</p>
+<pre><code class="language-bash">BGSAVE cp /data/dump.rdb /backup/redis-dump-$(date +%F).rdb
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../.." class="btn btn-neutral float-left" title="Página Inicial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../obrigatorios/" class="btn btn-neutral float-right" title="Componentes Obrigatórios">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../bancodedados/" class="btn btn-neutral float-left" title="Banco de Dados"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../checklist/" class="btn btn-neutral float-right" title="Check-list pós instalação">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -170,10 +157,10 @@ Para fins gerais, considere como <em>Componentes Obrigatórios</em> aqueles que 
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../bancodedados/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../obrigatorios/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../checklist/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
