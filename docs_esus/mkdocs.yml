@@ -2,43 +2,37 @@ site_name: Manual de Implantação
 
 nav:
   - Página Inicial: index.md
-  - Requisitos:
-    - Introdução: modulos/requisitos/introducao.md
   - Componentes:
     - Introdução: modulos/componentes/introducao.md
-    - Backend: modulos/componentes/backend.md
-#    - Instalação: componentes/instalacao.md
-#    - Configuração: componentes/configuracao.md
-#    - Testes: componentes/testes.md
+    - Componentes Obrigatórios: modulos/componentes/obrigatorios.md
+    - Componentes Complementares: modulos/componentes/opcionais.md
+  - Infraestrutura Recomendada:
+    - Infraestrutura de referência: modulos/recursoMinimo/infraestrutura.md
+  - Arquitetura:
+    - Arquitetura do Sistema: modulos/arquitetura/arquitetura.md
+  - Preparação do Ambiente:
+    - Preparação do Ambiente: modulos/ambiente/ambiente.md
+  - Instalação da aplicação:
+    - Instalação com Docker Compose: modulos/instalacao/compose.md
+    - Instalação com Kubernetes: modulos/instalacao/kubernetes.md
+    - Load Balance e Redundância: modulos/instalacao/loadbalance.md
+    - Banco de Dados: modulos/instalacao/bancodedados.md
+    - Banco de Dados Chave-valor: modulos/instalacao/cache.md
+    - Check-list pós instalação: modulos/instalacao/checklist.md
+  - Boas Práticas:
+    - Boas Práticas: modulos/praticas/boaspraticas.md
+  - Resolvendo Problemas:
+    - Troubleshooting: modulos/problemas/problemas.md
+  - Referências:
+    - Referências: modulos/referencias/referencia.md
 
 theme:
-  name: material
-  palette:
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
+  name: readthedocs
+  logo: assets/icons/favicon100.png
+  formats:
+    - epub
+    - pdf
 
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-  features:
-    - navigation.tabs
-    - navigation.top
-    - navigation.expand
-    - navigation.instant
-    - navigation.sections
-    - navigation.tracking
-    - navigation.search.highlight
-    - navigation.search.suggest
-    - navigation.search.share
-    - navigation.search.suggest
-    - navigation.search.share
-    - navigation.search.highlight
-    - navigation.search.suggest
-    - navigation.search.share
+plugins:
+  - search
+  - mermaid2
