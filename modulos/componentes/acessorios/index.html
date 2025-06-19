@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Componentes Acessórios - Manual de Implantação</title>
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Componentes Acess\u00f3rios";
+        var mkdocs_page_input_path = "modulos/componentes/acessorios.md";
+        var mkdocs_page_url = null;
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a href="../../..">
+<img alt="Logo" class="logo" src="../../../assets/icons/favicon100.png"/>
+</a><div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../..">Página Inicial</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Componentes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introducao/">Introdução</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../principais/">Componentes Principais</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Componentes Acessórios</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#apache-superset">Apache Superset</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Infraestrutura Recomendada</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recursoMinimo/infraestrutura/">Infraestrutura de referência</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Arquitetura</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../arquitetura/arquitetura/">Arquitetura do Sistema</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Preparação do Ambiente</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ambiente/ambiente/">Preparação do Ambiente</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Instalação da aplicação</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/compose/">Instalação com Docker Compose</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/kubernetes/">Instalação com Kubernetes</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/loadbalance/">Load Balance e Redundância</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/bancodedados/">Banco de Dados</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/cache/">Banco de Dados Chave-valor</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/checklist/">Check-list pós instalação</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Boas Práticas</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../praticas/boaspraticas/">Boas Práticas</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resolvendo Problemas</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../problemas/problemas/">Troubleshooting</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Referências</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../referencias/referencia/">Referências</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Manual de Implantação</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
+<li class="breadcrumb-item">Componentes</li>
+<li class="breadcrumb-item active">Componentes Acessórios</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="componentes-acessorios-ao-e-sus-af">COMPONENTES ACESSÓRIOS AO e-SUS AF</h1>
+<p>Como relatado no documento de introdução, os componentes acessórios são aqueles que estendem os recursos do sistema e garantem funcionalidades adicionais à aplicação. Estes componentes possibilitam tem funções variadas atuando
+em inúmeras frentes.<br/>
+A escolha der quais componentes acessórios utilizar é do gestor de infraestrutura e, para esta definição, deve-se considerar o porte da aplicação, a infraestrutura disponível e as necessidades de monitoramento e gestão do sistema.<br/>
+A seguir, listamos os componentes acessórios que podem ser utilizados com o e-SUS AF.  </p>
+<h2 id="apache-superset">Apache Superset</h2>
+<p>O Apache Superset é uma plataforma de visualização de dados que permite a criação de dashboards e relatórios interativos.<br/>
+Ele pode ser integrado ao e-SUS AF para fornecer uma interface de visualização dos dados, facilitando a análise e interpretação das informações possibilitando a criação de gráficos, tabelas e outros elementos visuais que ajudam na tomada de decisões.<br/>
+Faz parte do conjunto de ferramentas de Business Intelligence (BI) e é uma opção popular para visualização de dados em ambientes corporativos.<br/>
+O banco de dados do e-SUS AF é munido de um conjunto de views que podem ser utilizadas para a criação de dashboards e relatórios no Apache Superset, estas views são criadas e mantidas pelo próprio e-SUS AF, garantindo que os dados estejam sempre atualizados e consistentes.<br/>
+para além das views disponibilizadas, é possível acessar diretamente as tabelas do banco de dados, permitindo uma flexibilidade maior na criação de visualizações personalizadas sw forma a tirar máximo proveito dos recursos avançados de filtragem, agrupamento e drill-down, permitindo que os usuários explorem os dados de forma interativa.<br/>
+O Repositório do BI e-SUS AF oferece uma série de dashboards pré-configurados que podem ser utilizados como ponto de partida para a criação de visualizações personalizadas, facilitando a análise de dados e a tomada de decisões informadas.  </p>
+<div class="mermaid">graph TD
+    A[Usuário] --&gt; B[Apache Superset]
+    B --&gt; E[Dashboards Pré-configurados]
+    B --&gt; F[Dashboards Personalizados]
+    E --&gt; C[Views do Banco de Dados e-SUS AF]
+    F --&gt; C
+    F --&gt; D[Tabelas do Banco de Dados e-SUS AF]
+</div>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../principais/" title="Componentes Principais"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../../recursoMinimo/infraestrutura/" title="Infraestrutura de referência">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../principais/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../../recursoMinimo/infraestrutura/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../../..";</script>
+<script src="../../../js/theme_extra.js"></script>
+<script src="../../../js/theme.js"></script>
+<script src="../../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>
