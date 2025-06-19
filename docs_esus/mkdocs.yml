@@ -4,8 +4,8 @@ nav:
   - Página Inicial: index.md
   - Componentes:
     - Introdução: modulos/componentes/introducao.md
-    - Componentes Obrigatórios: modulos/componentes/obrigatorios.md
-    - Componentes Complementares: modulos/componentes/opcionais.md
+    - Componentes Principais: modulos/componentes/principais.md
+    - Componentes Acessórios: modulos/componentes/acessorios.md
   - Infraestrutura Recomendada:
     - Infraestrutura de referência: modulos/recursoMinimo/infraestrutura.md
   - Arquitetura:
