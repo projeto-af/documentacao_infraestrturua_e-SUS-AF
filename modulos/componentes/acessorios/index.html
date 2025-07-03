@@ -131,13 +131,24 @@ Faz parte do conjunto de ferramentas de Business Intelligence (BI) e é uma opç
 O banco de dados do e-SUS AF é munido de um conjunto de views que podem ser utilizadas para a criação de dashboards e relatórios no Apache Superset, estas views são criadas e mantidas pelo próprio e-SUS AF, garantindo que os dados estejam sempre atualizados e consistentes.<br/>
 para além das views disponibilizadas, é possível acessar diretamente as tabelas do banco de dados, permitindo uma flexibilidade maior na criação de visualizações personalizadas sw forma a tirar máximo proveito dos recursos avançados de filtragem, agrupamento e drill-down, permitindo que os usuários explorem os dados de forma interativa.<br/>
 O Repositório do BI e-SUS AF oferece uma série de dashboards pré-configurados que podem ser utilizados como ponto de partida para a criação de visualizações personalizadas, facilitando a análise de dados e a tomada de decisões informadas.  </p>
-<div class="mermaid">graph TD
-    A[Usuário] --&gt; B[Apache Superset]
-    B --&gt; E[Dashboards Pré-configurados]
-    B --&gt; F[Dashboards Personalizados]
-    E --&gt; C[Views do Banco de Dados e-SUS AF]
-    F --&gt; C
-    F --&gt; D[Tabelas do Banco de Dados e-SUS AF]
+<div class="mermaid">---
+config:
+  theme: neutral
+---
+flowchart TD
+    User["Usuário (Analista de BI)"]
+    SupersetUI["Interface Web (UI)"]
+    SupersetBackend["Backend Superset (Servidor)"]
+    DB["Banco de Dados"]
+
+    User --&gt;|1. Cria/Visualiza Gráfico| SupersetUI
+    SupersetUI --&gt;|2. Requisição para carregar dados| SupersetBackend
+    SupersetBackend --&gt;|3. Executa Query SQL| DB
+
+    subgraph Plataforma_Apache_Superset["Plataforma Apache Superset"]
+        SupersetUI
+        SupersetBackend
+    end
 </div>
 </div>
 </div><footer>
