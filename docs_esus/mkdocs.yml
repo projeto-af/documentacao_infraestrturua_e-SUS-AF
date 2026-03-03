@@ -1,6 +1,8 @@
 site_name: Manual de Implantação
 
 nav:
+  - Notas de Release:
+    - Notas de Release: modulos/notas/notas_de_release.md
   - Página Inicial: index.md
   - Componentes:
     - Introdução: modulos/componentes/introducao.md
@@ -33,6 +35,15 @@ theme:
     - epub
     - pdf
 
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
 plugins:
   - search
   - mermaid2
+  - with-pdf
+
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
