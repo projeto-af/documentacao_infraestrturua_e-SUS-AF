@@ -21,7 +21,7 @@
     <![endif]-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-</head>
+<link href="../../../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
 <body class="wy-body-for-nav" role="document">
 <div class="wy-grid-for-nav">
 <nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
@@ -36,6 +36,11 @@
 </div>
 </div>
 <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Notas de Release</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notas/notas_de_release/">Notas de Release</a>
+</li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../..">Página Inicial</a>
 </li>
@@ -131,25 +136,13 @@ Faz parte do conjunto de ferramentas de Business Intelligence (BI) e é uma opç
 O banco de dados do e-SUS AF é munido de um conjunto de views que podem ser utilizadas para a criação de dashboards e relatórios no Apache Superset, estas views são criadas e mantidas pelo próprio e-SUS AF, garantindo que os dados estejam sempre atualizados e consistentes.<br/>
 para além das views disponibilizadas, é possível acessar diretamente as tabelas do banco de dados, permitindo uma flexibilidade maior na criação de visualizações personalizadas sw forma a tirar máximo proveito dos recursos avançados de filtragem, agrupamento e drill-down, permitindo que os usuários explorem os dados de forma interativa.<br/>
 O Repositório do BI e-SUS AF oferece uma série de dashboards pré-configurados que podem ser utilizados como ponto de partida para a criação de visualizações personalizadas, facilitando a análise de dados e a tomada de decisões informadas.  </p>
-<div class="mermaid">---
-config:
-  theme: neutral
----
-flowchart TD
-    User["Usuário (Analista de BI)"]
-    SupersetUI["Interface Web (UI)"]
-    SupersetBackend["Backend Superset (Servidor)"]
-    DB["Banco de Dados"]
-
-    User --&gt;|1. Cria/Visualiza Gráfico| SupersetUI
-    SupersetUI --&gt;|2. Requisição para carregar dados| SupersetBackend
-    SupersetBackend --&gt;|3. Executa Query SQL| DB
-
-    subgraph Plataforma_Apache_Superset["Plataforma Apache Superset"]
-        SupersetUI
-        SupersetBackend
-    end
-</div>
+<div class="mermaid">graph TD
+    A[Usuário] --&gt; B[Apache Superset]
+    B --&gt; E[Dashboards Pré-configurados]
+    B --&gt; F[Dashboards Personalizados]
+    E --&gt; C[Views do Banco de Dados e-SUS AF]
+    F --&gt; C
+    F --&gt; D[Tabelas do Banco de Dados e-SUS AF]</div>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
@@ -177,12 +170,12 @@ flowchart TD
 <script>var base_url = "../../..";</script>
 <script src="../../../js/theme_extra.js"></script>
 <script src="../../../js/theme.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 <script src="../../../search/main.js"></script>
 <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
         });
     </script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({});</script></body>
+<script>mermaid.initialize({});</script></body>
 </html>

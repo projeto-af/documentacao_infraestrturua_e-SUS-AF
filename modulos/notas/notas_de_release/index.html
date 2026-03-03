@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Notas de Release - Manual de Implantação</title>
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Notas de Release";
+        var mkdocs_page_input_path = "modulos/notas/notas_de_release.md";
+        var mkdocs_page_url = null;
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../../../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a href="../../..">
+<img alt="Logo" class="logo" src="../../../assets/icons/favicon100.png"/>
+</a><div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Notas de Release</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Notas de Release</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#v111-2026-03-02">[v1.1.1] - 2026-03-02</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#novidades">🚀 Novidades</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#correcoes">🛠 Correções</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mudancas-criticas-breaking-changes">⚠️ Mudanças Críticas (Breaking Changes)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#instrucoes-de-atualizacao">📋 Instruções de Atualização</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#1-atualizacao-de-imagens-registry">1. Atualização de Imagens (Registry)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-migracao-de-banco-de-dados">2. Migração de Banco de Dados</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-verificacao">3. Verificação</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#ddl">DDL</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#dml">DML</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plano-de-rollback">🔄 Plano de Rollback</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../..">Página Inicial</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Componentes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../componentes/introducao/">Introdução</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../componentes/principais/">Componentes Principais</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../componentes/acessorios/">Componentes Acessórios</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Infraestrutura Recomendada</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recursoMinimo/infraestrutura/">Infraestrutura de referência</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Arquitetura</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../arquitetura/arquitetura/">Arquitetura do Sistema</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Preparação do Ambiente</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ambiente/ambiente/">Preparação do Ambiente</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Instalação da aplicação</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/compose/">Instalação com Docker Compose</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/kubernetes/">Instalação com Kubernetes</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/loadbalance/">Load Balance e Redundância</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/bancodedados/">Banco de Dados</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/cache/">Banco de Dados Chave-valor</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacao/checklist/">Check-list pós instalação</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Boas Práticas</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../praticas/boaspraticas/">Boas Práticas</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resolvendo Problemas</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../problemas/problemas/">Troubleshooting</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Referências</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../referencias/referencia/">Referências</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Manual de Implantação</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
+<li class="breadcrumb-item">Notas de Release</li>
+<li class="breadcrumb-item active">Notas de Release</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="notas-de-release">Notas de Release</h1>
+<p>Este documento contém o histórico de lançamentos do e-SUS AF, detalhando novas funcionalidades, correções de bugs e instruções necessárias para atualização e migração.</p>
+<hr/>
+<h2 id="v111-2026-03-02">[v1.1.1] - 2026-03-02</h2>
+<h3 id="novidades">🚀 Novidades</h3>
+<ul>
+<li><strong>Informação de Óbito do Usuário SUS</strong>: Adicionada funcionalidade para registrar informações de óbito do usuário SUS.</li>
+<li><strong>Cadastro e Gestão de Profissionais de Saúde (Prescritores)</strong>: Adiciona recurso para gerenciar informações dos profissionais prescritores no sistema.</li>
+<li><strong>Exportação em Excel do Relatório de Histórico de Dispensação do Usuário SUS</strong>: Permite exportar dados do histórico de dispensação em formato Excel para facilitar análises e relatórios.</li>
+</ul>
+<h3 id="correcoes">🛠 Correções</h3>
+<ul>
+<li>Correção de falhas que impactavam fluxos críticos como óbito, dispensação e gestão de perfis.  </li>
+<li>Melhorias nos relatórios gerenciais, com adequações de layout e geração em formato Excel.</li>
+</ul>
+<h3 id="mudancas-criticas-breaking-changes">⚠️ Mudanças Críticas (Breaking Changes)</h3>
+<ul>
+<li>Adição da variável de ambiente <code>MAIL_SECURE</code> para habilitar ou desabilitar o TLS para e-mail (implementação de compatibilidade com STARTTLS).</li>
+<li>Adição de novas entidades de banco de dados.</li>
+</ul>
+<hr/>
+<h2 id="instrucoes-de-atualizacao">📋 Instruções de Atualização</h2>
+<p>Para atualizar para esta versão, siga os passos abaixo de acordo com sua infraestrutura.</p>
+<h3 id="1-atualizacao-de-imagens-registry">1. Atualização de Imagens (Registry)</h3>
+<p>As novas imagens estão disponíveis no Gitlab Container Registry. Atualize seu arquivo de implantação com as tags específicas da versão.</p>
+<p><strong>Docker Compose:</strong>
+No arquivo <code>docker-compose.yml</code>, altere as tags das imagens:
+<pre class="highlight"><code class="language-yaml">services:
+  web:
+    image: gitlab.inova-af.dev.br:5050/inova-af/esus-af/e-susaf-web:v1.1.1
+  api:
+    image: gitlab.inova-af.dev.br:5050/inova-af/esus-af/e-susaf-api:v1.1.1</code></pre></p>
+<p><strong>Kubernetes:</strong>
+Atualize os deployments via kubectl:
+<pre class="highlight"><code class="language-bash">kubectl set image deployment/esus-web web=gitlab.inova-af.dev.br:5050/inova-af/esus-af/e-susaf-web:v1.1.1
+kubectl set image deployment/esus-api api=gitlab.inova-af.dev.br:5050/inova-af/esus-af/e-susaf-api:v1.1.1</code></pre></p>
+<h3 id="2-migracao-de-banco-de-dados">2. Migração de Banco de Dados</h3>
+<p>Esta versão contém migrações de esquema que devem ser aplicadas <strong>antes</strong> de subir a nova versão da aplicação.</p>
+<p><strong>Passo 1: Backup de Segurança</strong>
+Sempre realize um backup antes de iniciar a migração:
+<pre class="highlight"><code class="language-bash">pg_dump -U postgres -h &lt;db_host&gt; -F c -b -v -f backup_antes_v1.0.5.sqlc esus</code></pre></p>
+<p><strong>Passo 2: Execução das Migrações</strong>
+As migrações deverão ser executadas manualmente, respeitando a ordem de execução definida no repositório database/postgres.</p>
+<div class="admonition danger">
+<p class="admonition-title">ATENÇÃO</p>
+<p>Os arquivos DDL do e-SUS AF estão no repositório em <code>/database/postgres</code> e os arquivos de DML estão no repositório <code>database/data</code>.<br/>
+Os arquivos estão organizados em ordem cronológica. Para o sucesso da migração, siga a ordem cronológica dos arquivos partindo do arquivo subsequente ao último executado.</p>
+</div>
+<h3 id="3-verificacao">3. Verificação</h3>
+<p>Após verificar a última atualização em banco de dados, execute em ordem os arquivos DDL e DML. Por exemplo, se a versão implantada em sua infraestrutura é a <code>v1.0.5</code> e todos os arquivos foram executados com sucesso para a versão em questão (deverão ter sido executados os arquivos e anteriores aos citados a seguir: DML - 20251027211540-Ajustes-dominios-bug.sql e DDL - 20250815104637-configuracao_si_bnafar.sql), execute os arquivos DDL e DML listados abaixo na ordem em que estão apresentados.</p>
+<h4 id="ddl">DDL</h4>
+<ul>
+<li>20251117205241-ajuste_prescritor_conselho.sql</li>
+<li>20260115174000-add_sigla_tipo_movimentacao.sql</li>
+<li>20260227133926-ajuste-numero-conselho-crf.sql</li>
+</ul>
+<h4 id="dml">DML</h4>
+<ul>
+<li>20251201210012-permissoes-prescritor.sql</li>
+<li>20260115174001-update_siglas_tipo_movimentacao.sql</li>
+<li>20260122104835-resources-config-sibnafar.sql</li>
+<li>20260122163945-Insert-Config-SIBNAFAR.sql</li>
+<li>20260227174856-Insert_entrada_por_doacao.sql</li>
+</ul>
+<hr/>
+<h2 id="plano-de-rollback">🔄 Plano de Rollback</h2>
+<p>Caso ocorra algum erro crítico após a atualização:
+1. Reverta as imagens para a versão anterior (sugerida a <code>v1.0.5</code>).
+2. Se houve alteração destrutiva no banco, restaure o backup realizado no Passo 1:
+   <pre class="highlight"><code class="language-bash">pg_restore -U postgres -h &lt;db_host&gt; -d esus -v backup_antes_v1.0.5.sqlc</code></pre>
+3. Entre em contato com a equipe do Inova-AF para apoio e suporte.</p>
+<hr/>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../../.." title="Página Inicial">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../../.." style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../../..";</script>
+<script src="../../../js/theme_extra.js"></script>
+<script src="../../../js/theme.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="../../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>
